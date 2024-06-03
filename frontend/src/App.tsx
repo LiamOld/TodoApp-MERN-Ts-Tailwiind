@@ -1,6 +1,8 @@
 import { ChangeEvent, useState } from "react";
+import Task from "./Task";
+import Tasks from "./Tasks";
 
-type tasktype = {
+export type tasktype = {
   name: string;
   done: boolean;
 };
@@ -60,16 +62,7 @@ const App = () => {
         </button>
       </div>
       <ul>
-        {tasks.map((task, index) => (
-          <div>
-            <input
-              type="checkbox"
-              checked={task.done}
-              onClick={() => handleCheck(index)}
-            ></input>
-            {task.name}
-          </div>
-        ))}
+        <Tasks tasks={tasks} onClick={handleCheck} />
       </ul>
     </div>
   );

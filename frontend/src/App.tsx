@@ -32,6 +32,16 @@ const App = () => {
     setTask(newtask);
   };
 
+  const handleCheck = (i: number) => {
+    const newtasks = tasks.map((task, index) => {
+      if (index == i) {
+        return { name: task.name, done: !task.done };
+      }
+      return task;
+    });
+    setTasks(newtasks);
+  };
+
   return (
     <div className="text-center">
       <h2 className="text-3xl">Tasks List</h2>
@@ -50,9 +60,13 @@ const App = () => {
         </button>
       </div>
       <ul>
-        {tasks.map((task) => (
+        {tasks.map((task, index) => (
           <div>
-            <input type="checkbox" checked={task.done}></input>
+            <input
+              type="checkbox"
+              checked={task.done}
+              onClick={() => handleCheck(index)}
+            ></input>
             {task.name}
           </div>
         ))}

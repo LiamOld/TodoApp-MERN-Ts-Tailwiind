@@ -1,5 +1,4 @@
 import { ChangeEvent, useState } from "react";
-import Task from "./Task";
 import Tasks from "./Tasks";
 
 export type tasktype = {
@@ -45,18 +44,18 @@ const App = () => {
   };
 
   return (
-    <div className="text-center">
-      <h2 className="text-3xl">Tasks List</h2>
-      <div>
+    <div className="max-w-md mx-auto px-2 py-2 mt-2 shadow-md shadow-gray-500 rounded-lg">
+      <h2 className="text-2xl font-bold text-center mb-2">Tasks List</h2>
+      <div className="flex justify-between mb-2">
         <input
           onChange={handleChange}
-          className="border border-gray-700"
+          className="flex-grow rouned-lg border border-gray-500 p-1 mr-4"
           type="text"
           value={task.name}
         />
         <button
           onClick={handleClick}
-          className="bg-gray-300 border border-gray-700 ml-3"
+          className="bg-blue-500  hover:bg-blue-700 text-white font-bold px-2 py-1 rounded-lg shadow-md shadow-gray-700 "
         >
           Add
         </button>
